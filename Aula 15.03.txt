@@ -1,0 +1,4 @@
+Caio,
+
+Nao consegui realizar o trabalho, consegui a parte do javascript, chamando a layermanager e a layercontrol,logo depois a pagina html,
+mas nao consegui passar os dados do formulario em diante.
