@@ -1,0 +1,4 @@
+Caio,
+
+Conseguimos apenas filtrar a uri, conseguindo separar um recurso e salvando os parametros em um array associativo para gerar um jason. 
+Procuramos bastante sobre rest mas não conseguimos nada.
