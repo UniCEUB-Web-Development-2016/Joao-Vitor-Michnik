@@ -1,0 +1,40 @@
+http://localhost/select/user/?first_name=joao&last_name=vitor&birthday=1990-10-10&email=nsei&login=joaozao&pass=123123&relationship_status=solteiro&hometown=brasilia
+
+----------------------User-------------------------------
+
+CREATE  TABLE IF NOT EXISTS `myparty`.`user` (
+  `cod` INT NOT NULL AUTO_INCREMENT ,
+  `first_name` VARCHAR(50) NOT NULL ,
+  `last_name` VARCHAR(100) NOT NULL ,
+  `birthday` DATE NOT NULL ,
+  `email` VARCHAR(100) NOT NULL ,
+  `login` VARCHAR(50) NOT NULL ,
+  `pass` VARCHAR(45) NOT NULL ,
+  `relationship_status` VARCHAR(50) NOT NULL ,
+  `hometown` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`cod`) )
+
+--------------------Party--------------------------------
+
+CREATE  TABLE IF NOT EXISTS `myparty`.`party` (
+  `cod` INT NOT NULL ,
+  `name` VARCHAR(80) NOT NULL ,
+  `description` VARCHAR(300) NOT NULL ,
+  `max_participants` INT NOT NULL ,
+  `age_group` INT NOT NULL ,
+  `initial_date` DATE NOT NULL ,
+  `final_date` DATE NOT NULL ,
+  `price` INT NOT NULL ,
+  `creator` VARCHAR(100) NOT NULL ,
+  `city` VARCHAR(100) NOT NULL ,
+  PRIMARY KEY (`cod`) )
+
+---------------------Map---------------------------------
+
+CREATE  TABLE IF NOT EXISTS `myparty`.`map` (
+  `cod` INT NOT NULL AUTO_INCREMENT ,
+  `party_name` VARCHAR(80) NOT NULL ,
+  `map_long` VARCHAR(50) NOT NULL ,
+  `map_lat` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`cod`) )
+
