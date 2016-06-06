@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="../img/icontitle.png" type="image/gif">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../lib/css/font-awesome.css">
+    <link rel="stylesheet" media="screen" href="../lib/css/style.css">
+    <script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script> 
+		<script>
+	window.onload = function() {
+
+	  new dgCidadesEstados({
+		estado: document.getElementById('estado'),
+		cidade: document.getElementById('cidade'),
+		 estadoVal: '<%=Request("estado") %>',
+		 cidadeVal: '<%=Request("cidade") %>'
+	  });
+	}
+	</script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+			<a class="navbar-brand"><img class="logo" src="../img/minilogo.png" alt="my party"></a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar"></button>
+        </div>
+        <div class="collapse navbar-collapse">
+			<div class="nav navbar-nav navbar-right" id="mainNavBar">
+				  <div class="dropdown">
+					<li class="box-user">
+						<a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img class="avatar_user" src="http://www.followingthenerd.com/site/wp-content/uploads/avatar.jpg_274898881.jpg" alt="">
+						<span class="login_user"> jvmichnik</span></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						  <li role="presentation"><a role="menuitem" data-toggle="modal" data-target="#ModalPerfil" tabindex="-1" href="#"><i class="fa fa-user"></i> Profile Card</a></li>
+						  <li role="presentation"><a role="menuitem" tabindex="-1" href="editprofile.html"><i class="fa fa-cog"></i> Edit Profile</a></li>
+						  <li role="presentation" class="divider"></li>
+						  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						</ul>
+					</li>
+				  </div>
+			</div> 
+        </div>
+    </div>
+</nav>
+<!-- Modal -->
+  <div class="modal fade" id="ModalPerfil" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body mProfileCard">
+		  <div id="ProfileImage">
+			<img src="http://www.followingthenerd.com/site/wp-content/uploads/avatar.jpg_274898881.jpg" alt="">
+		  </div>
+		  <div id="ProfileData">
+				<span class="cName">João Vitor de S Michnik</span><br />
+				<span class="cDescription">jvmichnik</span><br />
+				<span class="cDescription">Brasilia, 18, Solteiro</span>
+		  </div>
+        </div>
+        <div class="modal-footer mfProfile">
+          <button type="button" id="bCloseProfile" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>   
+    </div>
+  </div>
+<!-- KBOOOOOOOOOOOOOOO -->
+<div class="container text-center">
+    <div class="row">
+	<center>
+        <div id="div_principal">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="btn-group-home" class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <a href="homepage.html" class="btn btn-inverse"><i class="fa fa-users"></i> Party List</a>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="map.html" id="bMap" class="btn btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div id="conteudo">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="well">
+							<h2>Perfil</h2>
+							<form name="modalForm">
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divFirstName" class="form-group col-md-4" >
+								<label for="first_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconFirstName" class=""></i>
+									<input type="text" class="form-control colorForm" placeholder="First name" id="firstname" name="first_name" />
+								</div>
+							</div >
+							<div id="divLastName" class="form-group col-md-6" >
+								<label for="last_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconLastName" class=""></i>
+									<input type = "text" class="form-control colorForm" placeholder="Last name" id="lastname" name="last_name" />
+								</div>
+							</div >
+						</div >
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divFirstName" class="form-group col-md-4">
+								<select id="estado" class="form-control partydate colorForm" style="float: left;" name="estado"></select>
+							</div >
+							<div id="divLastName" class="form-group col-md-6" >
+								<select id="cidade" class="form-control colorForm" style="width: 220px;float: left;margin-left: 30px;" name="cidade"></select>
+							</div >
+						</div>
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div class="col-md-2" >
+								<input type="radio" name="gender" checked> Male
+							</div >
+							<div class="col-md-3" >
+								<input type="radio" name="gender"> Female				
+							</div>
+						</div >
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divDate" class="form-group col-md-5" >							
+								<select id="estado" class="form-control partydate colorForm" style="float: left;margin-top: 25px" name="estado">
+									<option value="solteiro">Solteiro</option>
+									<option value="enrolado">Enrolado</option>
+									<option value="namorando">Namorando</option>
+									<option value="Casado">Casado</option>
+								</select>
+							</div >
+							<div id="divDate" class="form-group col-md-5" >							
+								<label>Birthday</label>
+								<input type = "date" class="form-control colorForm" placeholder="Birthday" id="birthday" />
+							</div >
+						</div >
+								<div class="col-sm-12" style="margin-top: 10px;">
+									<a href="homepage.html" id="bCancel" class="btn btn-primary">Cancel</a><button type="button" id="bCreateParty" class="btn btn-primary">Save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<center>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container-fluid text-center">
+        <p>Copyright © 2016 MyParty. All rights reserved. </p>
+    </div>
+</footer>
+</body>
+</html>

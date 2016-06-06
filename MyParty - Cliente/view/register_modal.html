@@ -1,0 +1,112 @@
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" >
+				<!--Modal Header-->
+				<div class="modal-header" >
+					<h4 class="modal-title" id = "myModalLabel" >
+                        Register
+					</h4>
+				</div >
+
+				<!--Modal Body-->
+				<form name="modalForm">
+					<div class="modal-body row" >
+						<div class="col-md-12" >
+							<div id="divFirstName" class="form-group col-md-5 marginbottom10" >
+								<label for="first_name" class="form-control-label" > First Name </label >
+								<div class="right-inner-addon ">
+									<i id="iconFirstName" class=""></i>
+									<input type="text" placeholder="First Name" class="form-control" id="firstname" name="first_name" onblur="validateFirstName(this.value),enablesubmit()"/>
+								</div>
+							</div >
+							<div id="divLastName" class="form-group col-md-7 marginbottom10" >
+								<label for="last_name" class="form-control-label" > Last Name </label >
+								<div class="right-inner-addon ">
+									<i id="iconLastName" class=""></i>
+									<input type = "text" class="form-control" id="lastname" name="last_name" onblur="validateLastName(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validateFirstName">
+
+						</div>
+						<div id="validateLastName">
+
+						</div>
+						<div class="col-md-12" >
+							<div class="form-group col-md-5" >
+								<label for="gender" > Gender</label >
+								<select id = "gender" class="form-control" onblur="enablesubmit()">
+									<option value = "M" > Male</option >
+									<option value = "F" > Female</option >
+								</select >
+							</div >
+						</div >
+						<div class="col-md-12">
+							<div id="divDate" class="form-group col-md-5" >
+								<label for="email" > Birthday</label >
+								<div class="right-inner-addon ">
+									<i id="iconDate" class=""></i>
+									<input type = "date" class="form-control" id = "birthday" onblur="validateDate(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validateDate">
+
+						</div>
+						<div class="col-md-12" >
+							<div id="divEmail" class="form-group col-md-10" >
+								<label for="email" > Email</label >
+								<div class="right-inner-addon">
+									<i id="iconEmail" class=""></i>
+									<input type="email" class="form-control" id="email" onblur="validateEmail(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div>
+						<div id="validateEmail">
+
+						</div>
+						<div class="col-md-12" >
+							<div id="divLogin" class="form-group col-md-5" >
+								<label for="login">Login</label >
+								<div class="right-inner-addon">
+									<i id="iconLogin" class=""></i>
+									<input type="text" class="form-control" id="login" onblur="validateLogin(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div>
+						<div id="validateLogin">
+
+						</div>
+						<div class="form-group col-md-12 marginbottom0" >
+							<div id="divPass" class="col-md-5" >
+								<label for="password">Password</label >
+								<div class="right-inner-addon ">
+									<i id="iconPass" class=""></i>
+									<input type="password" class="form-control" id="first_password" onblur="validatePassword(this.value),enablesubmit()"/>
+								</div>
+							</div >
+							<div id="divConfirmPass" class="col-md-5" >
+								<label for="confirm_password" > Confirm Password </label >
+								<div class="right-inner-addon ">
+									<i id="iconConfirmPass" class=""></i>
+									<input type="password" class="form-control" id="confirm_password" onblur="validateConfirmPass(),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validatePass">
+
+						</div>
+						<div id="validateConfirmPass">
+
+						</div>
+						<br/>
+						<div class="form-group col-md-12 text-right margintop30" >
+							<button id="modalClose" type="button" class="btn btn-default" data-dismiss="modal" onclick="document.modalForm.reset();">Close</button >
+							<button id="modalSend" type="button" class="btn btn-primary" disabled>Send</button
+						</div >
+					</div >
+				</form>
+			</div >
+		</div >
+	</div >

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Party - Party social media</title>
+  <meta name="author" content="João Vitor">
+
+  <link rel="stylesheet" media="screen" href="../lib/css/bootstrap.css">
+  <link rel="stylesheet" media="screen" href="../lib/css/bootstrap-theme.min.css">
+  <script src="../lib/js/angular.min.js"></script>
+  <script src="../lib/js/jquery.min.js"></script>
+  <script src="../lib/js/bootstrap.js"></script>
+  <script type="text/javascript" src="../lib/js/validations.js"></script>
+  <link rel="stylesheet" href="../lib/css/font-awesome.css">
+  <link rel="stylesheet" media="screen" href="../lib/css/style.css">
+
+</head>
+<body>
+
+	<div id="background">
+		<div class="home">
+			<img class="logo" src="../img/logo2.png" alt="my party">
+				<div class="login">
+					<input class="form-control" type="text" placeholder="Login"/>
+					<input class="form-control" type="password" placeholder="Password"/>
+					<button class="btn btn-primary btn-block">Enter</button>
+					<center><span class="Signup">Don't have an account?
+                        <a href="#" id="linkSignup" data-toggle="modal" data-target="#registerModal">Sign Up</a>
+                    </span></center>
+					
+					
+					
+					
+					
+                        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" >
+				<!--Modal Header-->
+				<div class="modal-header" >
+					<h4 class="modal-title" id = "myModalLabel" >
+                        Sign Up
+					</h4>
+				</div >
+
+				<!--Modal Body-->
+				<form name="modalForm">
+					<div class="modal-body row " style="margin-left: 40px">
+						<div class="col-md-12" style="">
+							<div id="divFirstName" class="form-group col-md-4 marginbottom10" >
+								<label for="first_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconFirstName" class=""></i>
+									<input type="text" class="form-control" placeholder="First name" id="firstname" name="first_name" onblur="validateFirstName(this.value),enablesubmit()"/>
+								</div>
+							</div >
+							<div id="divLastName" class="form-group col-md-6 marginbottom10" >
+								<label for="last_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconLastName" class=""></i>
+									<input type = "text" class="form-control" placeholder="Last name" id="lastname" name="last_name" onblur="validateLastName(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validateFirstName">
+
+						</div>
+						<div id="validateLastName">
+
+						</div>
+						<div class="col-md-12" >
+							<div id="divEmail" class="form-group col-md-10" >
+								
+								<div class="right-inner-addon">
+									<i id="iconEmail" class=""></i>
+									<input type="email" class="form-control" placeholder="E-mail" id="email" onblur="validateEmail(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div>
+						<div id="validateEmail">
+
+						</div>
+						<div class="col-md-12" >
+							<div class="col-md-2" >
+								<input type="radio" name="gender" checked> Male
+							</div >
+							<div class="col-md-3" >
+								<input type="radio" name="gender"> Female				
+							</div>
+						</div >
+						<div class="col-md-12" >
+							<div id="divLogin" class="form-group col-md-5" >
+								<label for="login"></label >
+								<div class="right-inner-addon">
+									<i id="iconLogin" class=""></i>
+									<input type="text" class="form-control" placeholder="Login" id="login" onblur="validateLogin(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div>
+						<div id="validateLogin">
+
+						</div>
+						<div class="form-group col-md-12 marginbottom0" >
+							<div id="divPass" class="col-md-5" >
+								<div class="right-inner-addon ">
+									<i id="iconPass" class=""></i>
+									<input type="password" style="margin-bottom: 10px" class="form-control" placeholder="Password" id="first_password" onblur="validatePassword(this.value),enablesubmit()"/>
+								</div>
+							</div >
+							<div id="divConfirmPass" class="col-md-5" >
+								<div class="right-inner-addon ">
+									<i id="iconConfirmPass" class=""></i>
+									<input type="password" class="form-control" placeholder="Confirm password" id="confirm_password" onblur="validateConfirmPass(),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validatePass">
+
+						</div>
+						<div id="validateConfirmPass">
+
+						</div>
+						<div class="col-md-12">
+							<div id="divDate" class="form-group col-md-5" >
+							
+								<label>Birthday</label>
+								<div class="right-inner-addon ">
+									<i id="iconDate" class=""></i>
+									<input type = "date" class="form-control" placeholder="Birthday" id="birthday" onblur="validateDate(this.value),enablesubmit()"/>
+								</div>
+							</div >
+						</div >
+						<div id="validateDate">
+
+						</div>
+						<div class="form-group col-md-10 text-right margintop30" >
+							<button id="modalClose" type="button" class="btn btn-default" data-dismiss="modal" onclick="document.modalForm.reset();">Close</button >
+							<button id="modalSend" type="button" class="btn btn-primary" disabled>Send</button
+						</div >
+					</div >
+				</form>
+			</div >
+		</div >
+	</div >
+	
+	
+	
+	
+				</div>
+		</div>
+	</div>
+
+</body>
+</html>
