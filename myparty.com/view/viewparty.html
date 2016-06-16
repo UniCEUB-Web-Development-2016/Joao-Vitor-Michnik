@@ -1,0 +1,100 @@
+<script src="lib/js/mapstyle.js"></script>
+<script>
+function bLeave(){
+	document.getElementById("bLeaveParty").innerHTML = '<i class="fa fa-times" aria-hidden="true"></i> Leave Party';
+}
+function bEnter(){
+	document.getElementById("bLeaveParty").innerHTML = '<i class="fa fa-users" aria-hidden="true"></i> In party list';
+}
+</script>
+<div ng-include="'view/navbar.html'"></div>
+<center>
+<div id="div_principal">
+	<div ng-include="'view/menu.html'"></div>
+	<div id="conteudo">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="well" ng-repeat="x in myData">
+					<div ng-if="msgEnterParty" class="alert alert-success" style="text-align: left;width: 500px;padding: 5px 15px 5px 30px;margin-bottom: 0;margin-top: 20px;">
+						<strong>Success!</strong> You enter the party.
+					</div>
+					<div class="col-sm-12" style="height: 70px;">
+						<h2 id="partyTitle">{{x.party_name}}</h2>
+						<a id="bLeaveParty" class="btn btn-primary bEnterParty" onmouseover="bLeave()" onmouseout="bEnter()" ng-click="functionLEAVE()" ng-if="showLeave"><i class="fa fa-users" aria-hidden="true"></i> In party list</a><a id="bEnterParty" class="btn btn-primary bEnterParty" ng-click="functionPOST()" ng-if="showEnter"><i class="fa fa-plus" aria-hidden="true"></i> Enter Party</a><a id="bDeleteParty" class="btn btn-primary" ng-confirm-click="Are you sure you want to remove {{x.party_name}} from party list?" ng-click="functionDELETE(x.cod,x.cod_map)" ng-if="showDelete" style="margin-right: 5px;"><i class="fa fa-plus" aria-hidden="true"></i> Delete Party</a>
+					</div>
+					<form id="fParty" name="modalForm">
+						<div id="descriptionView" class="col-sm-12" style="padding-bottom: 1px;">
+							<span id="descriptionField"><i class="fa fa-calendar" aria-hidden="true"></i> {{x.initial_date}} until {{x.final_date}}</span>							
+						</div>
+						<div class="col-sm-12" style="padding-top: 5px;padding-bottom: 5px;">
+							<div id="cityView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="cityField" ng-model="city"><i class="fa fa-map-marker" aria-hidden="true"></i> {{x.city}}</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="padding-top: 0px;padding-bottom: 0px;">
+							<div id="cityView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="cityField" ng-model="city" ng-repeat="c in myCreator">Creator: <a id="creatorLogin" data-toggle="modal" data-target="#ModalPerfil" tabindex="-1">{{c.login}}</a>
+										<!-- Modal -->
+										  <div class="modal fade" id="ModalPerfil" role="dialog">
+										    <div class="modal-dialog">
+										    
+										      <!-- Modal content-->
+										      <div class="modal-content">
+										        <div class="modal-body mProfileCard">
+												  <div id="ProfileImage">
+													<img src="img/profile_avatar_default.png" alt="">
+												  </div>
+												  <div id="ProfileData">
+														<span class="cName">{{c.first_name}}</span><br />
+														<span class="cDescription">{{c.login}}</span><br />
+														<span class="cDescription">{{c.relationship_status}}, {{c.birthday | age}} {{c.hometown}}</span>			
+												  </div>
+										        </div>
+										        <div class="modal-footer mfProfile">
+										          <button type="button" id="bCloseProfile" class="btn btn-primary" data-dismiss="modal">Close</button>
+										        </div>
+										      </div>
+										      
+										    </div>
+										  </div>
+										<!-- KBOOOOOOOOOOOOOOO -->
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="padding-top: 5px;padding-bottom: 5px;">
+							<div id="cityView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="cityField" ng-model="city">Participants: {{participants}}</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="padding-top: 5px;padding-bottom: 5px;">
+							<div id="cityView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="cityField" ng-model="city">{{x.description}}</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="padding-top: 5px;padding-bottom: 5px;">
+							<div id="maxparticipantsView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="maxparticipantsField" ng-model="max_participantsLabel">Max Participants: {{x.max_participants}}</span>
+							</div>
+							<div id="priceView" class="col-sm-4" style="padding-left: 0px;">
+								<span id="priceField" ng-model="priceLabel"><i class="fa fa-usd" aria-hidden="true"></i> {{x.price}}</span>
+							</div>
+							<div id="agegroupView" class="col-sm-4">
+								<span id="agegroupField" ng-model="age_groupLabel">Age: {{x.age_group}}+</span>
+							</div>
+						</div>
+						<div class="col-sm-12" style="width: 635px; height: 200px;padding-top: 5px;padding-bottom: 5px;margin-bottom: 10px">
+							<div id="map" style="border: 5px solid #2D2D2D;width:100%;height:100%;">		
+							</div>
+						</div>
+					</form>
+					<div id="partyMembers" class="well">
+						<ul>
+							<a ng-repeat="x in arrMembers"><div id="ProfileImage" style="width: 48px;height: 48px;margin-top: 12px;margin-left: 10px;margin-right: 10px;border: none"><img src="img/profile_avatar_default.png" alt="Profile Avatar"></div><li><div class="mList"><span class="mName">{{x.first_name}}</span><br /><span class="mDescription">{{x.relationship_status}},  {{x.birthday | age}} {{x.hometown}}</span><br /><div></li></a>		
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</center>

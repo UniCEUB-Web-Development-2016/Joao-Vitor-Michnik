@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyParty">
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../img/icontitle.png" type="image/gif">
+    <script src="http://maps.googleapis.com/maps/api/js?"></script>
+    <script src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script> 
+</head>
+<div ng-include="'navbar.html'"></div>
+<p><a href="#/">Main</a></p>
+
+<a href="#partylist">City 1</a>
+<a href="#map">City 2</a>
+<div ng-view>
+</div>
+<footer class="footer">
+    <div class="container-fluid text-center">
+        <p>Copyright © 2016 MyParty. All rights reserved. </p>
+    </div>
+</footer>
+</body>
+</html>

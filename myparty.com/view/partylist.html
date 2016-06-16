@@ -1,0 +1,43 @@
+    <script src="lib/js/mapstyle.js"></script>
+    <script>
+    	var reload = function(){
+		window.setTimeout(function(){
+			window.location.reload(); 
+		},[2]);
+	};
+    </script>
+    <div ng-include="'view/navbar.html'"></div>
+    <div class="row">
+	<center>
+        <div id="div_principal">
+        	<div class="alert alert-success" style="text-align: left;padding-left: 30px;margin-bottom: 10px">
+				<strong>Success!</strong> Indicates a successful or positive action.
+			</div>
+        	<div ng-include="'view/menu.html'"></div>
+			<div id="conteudo">
+				<div class="row">
+					<div id="mPartiesList" class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="input-group">
+								<input type="text" class="form-control colorForm" id="iSearch" placeholder="Search for..." ng-model="search.party_name" >
+								<span class="input-group-btn">								
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<a href="#/new_party" id="bCreateParty" class="btn btn-primary" onclick="reload()"><i class="fa fa-plus fa-lg" aria-hidden="true"></i> Create new party</a>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div id="partyList" class="well">
+							<ul>
+								<a href="#/view_party/{{x.cod}}" ng-repeat="x in myData | filter:search | orderBy:'party_name'"><li><div class="dParty"><span class="pName">{{x.party_name}}</span><br /><span class="pCity"><i class="fa fa-map-marker" aria-hidden="true"></i> {{x.city}}</span><br /><span class="pDate">{{x.initial_date}}</span><div></li></a>																				
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+        </div>
+	</center>
+    </div>

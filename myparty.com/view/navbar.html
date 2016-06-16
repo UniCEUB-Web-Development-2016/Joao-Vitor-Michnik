@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" ng-controller="NavbarCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+			<a class="navbar-brand"><img class="logo" src="img/minilogo.png" alt="my party"></a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar"></button>
+        </div>
+        <div class="collapse navbar-collapse">
+			<div class="nav navbar-nav navbar-right" id="mainNavBar">
+				  <div class="dropdown">
+					<li class="box-user">
+						<a class="dropdown-toggle" type="button" data-toggle="dropdown"><img class="avatar_user" src="img/profile_avatar_default.png" alt="Profile Avatar">
+						<span class="login_user">{{login}} <i class="fa fa-caret-down" aria-hidden="true"></i></span></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						  <li role="presentation"><a role="menuitem" tabindex="-1" href="#/edit_profile"><i class="fa fa-cog"></i> Edit Profile</a></li>
+						  <li role="presentation" class="divider"></li>
+						  <li role="presentation"><a href="#" role="menuitem" tabindex="-1" ng-click="sessionBroke()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						</ul>
+					</li>
+				  </div>
+			</div> 
+        </div>
+    </div>
+</nav>

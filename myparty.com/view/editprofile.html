@@ -1,0 +1,77 @@
+    <div ng-include="'view/navbar.html'"></div>
+	<script>
+		$(document).ready(function(){
+			$(function(){
+				$('#birthday').datepicker({
+					format: 'yyyy-mm-dd'
+				});
+			});
+		});
+		function setDate(){
+			angular.element(document.getElementById('EditProfile')).scope().setDate(document.getElementById('birthday').value);
+		};
+	</script>
+    <div class="row" id="EditProfile" ng-controller="EditProfileCtrl">
+	<center>
+        <div id="div_principal" ng-controller="EditProfileCtrl">
+            <div ng-include="'view/menu.html'"></div>
+			<div id="conteudo">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="well">
+							<h2>Edit Perfil</h2>
+							<form name="modalForm">
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divFirstName" class="form-group col-md-4" >
+								<label for="first_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconFirstName" class=""></i>
+									<input type="text" class="form-control colorForm" placeholder="First name" id="firstname" name="first_name" ng-model="first_name"/>
+								</div>
+							</div >
+							<div id="divLastName" class="form-group col-md-6" >
+								<label for="last_name" class="form-control-label" ></label >
+								<div class="right-inner-addon ">
+									<i id="iconLastName" class=""></i>
+									<input type = "text" class="form-control colorForm" placeholder="Last name" id="lastname" name="last_name" ng-model="last_name"/>
+								</div>
+							</div >
+						</div >
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divFirstName" class="form-group col-md-4">
+								<select id="relationship_status" class="form-control partydate colorForm" style="float: left;" name="relationship_status" ng-model="relationship_status">
+									<option ng-selected="Solteiro" value="Solteiro">Solteiro</option>
+									<option ng-selected="Enrolado" value="Enrolado">Enrolado</option>
+									<option ng-selected="Namorando" value="Namorando">Namorando</option>
+									<option ng-selected="Casado" value="Casado">Casado</option>
+								</select>
+							</div >
+							<div id="divLastName" class="form-group col-md-6" >
+								<input type="text" class="form-control colorForm" style="width: 220px;float: left;margin-left: 30px;" placeholder="City" name="cidade" ng-model="city"/>
+							</div >
+						</div>
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div class="col-md-2" >
+								<input type="radio" ng-model="gender" value="male" name="gender"> Male
+							</div >
+							<div class="col-md-3" >
+								<input type="radio" ng-model="gender" value="female" name="gender"> Female				
+							</div>
+						</div >
+						<div class="col-md-12" style="padding-right: 10px;">
+							<div id="divDate" class="form-group col-md-5" >							
+								<label>Birthday</label>
+								<input type = "text" class="form-control colorForm" placeholder="Birthday" id="birthday" ng-model="birthday"/>
+							</div >
+						</div >
+								<div class="col-sm-12" style="margin-top: 10px;">
+									<a href="homepage.html" id="bCancel" class="btn btn-primary">Cancel</a><button type="button" id="bCreateParty" class="btn btn-primary" onclick="setDate()" ng-click="functionPUT(first_name,last_name,birthday,relationship_status,city,gender)">Save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<center>
+    </div>

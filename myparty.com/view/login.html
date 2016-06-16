@@ -1,0 +1,39 @@
+<style>
+body{
+		width: 100%;
+	height: 100%;
+	background: #1d4b87;
+	background: -moz-radial-gradient(center, ellipse cover,  #1d4b87 5%, #31355b 31%, #191919 100%);
+	background: -webkit-radial-gradient(center, ellipse cover,  #1d4b87 5%,#31355b 31%,#191919 100%);
+	background: radial-gradient(ellipse at center,  #1d4b87 5%,#31355b 31%,#191919 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d4b87', endColorstr='#191919',GradientType=1 );
+}
+.blue:focus{
+    border-color: #286090;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(2, 95, 175);
+}
+
+</style>
+<script>
+	function setDate(){
+		angular.element(document.getElementById('background')).scope().setDate(document.getElementById('birthday').value);
+	};
+</script>
+<div id="background" ng-controller="LoginCtrl">
+		<div class="home">
+			<img class="logo" src="img/logo2.png" alt="my party">
+				<div class="login">
+					<div class="alert alert-danger" ng-if="msg" style="padding: 5px 15px;margin-bottom: 10px">
+					  <strong>Login</strong> or <strong>Password</strong> is invalid.
+					</div>
+					<input class="form-control blue" type="text" placeholder="Login" ng-model="login"/>
+					<input class="form-control blue" type="password" placeholder="Password" ng-model="pass"/>
+					<input type="submit" class="btn btn-primary btn-block blue" value="Enter" ng-click="functionGET(login,pass);" />
+					<center><span class="Signup">Don't have an account?
+                        <a id="linkSignup" data-toggle="modal" data-target="#registerModal">Sign Up</a>
+                    </span></center>
+                    <div ng-include="'view/register_modal.html'">
+                    </div>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,128 @@
+	<div ng-include="'view/navbar.html'"></div>
+	<script>
+	var marker;
+	function placeMarker(location) {
+	  if ( marker ) {
+    		marker.setPosition(location);
+    		angular.element(document.getElementById('NewParty')).scope().mark(location.lat(),location.lng());
+  		} else {
+  			angular.element(document.getElementById('NewParty')).scope().mark(location.lat(),location.lng());
+		    marker = new google.maps.Marker({
+		      position: location,
+		      map: map,
+		      icon: 'img/icon.png'
+
+		    });
+  		}
+	}
+
+	function setDate(){
+		angular.element(document.getElementById('NewParty')).scope().setDate(document.getElementById('initialdate').value,document.getElementById('finaldate').value);
+	};
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	<script>
+	window.onload = function() {
+
+  	new dgCidadesEstados({
+    estado: document.getElementById('estado'),
+    cidade: document.getElementById('cidade'),
+     estadoVal: '<%=Request("estado") %>',
+     cidadeVal: '<%=Request("cidade") %>'
+  	});
+	};
+	$(document).ready(function(){
+		$('#ModalMap').on('shown.bs.modal', function() {
+		  var currentCenter = map.getCenter();  // Get current center before resizing
+		  google.maps.event.trigger(map, "resize");
+		  map.setCenter(currentCenter); // Re-set previous center
+		});
+		$(function(){
+			$('.datepicker').datepicker({
+				format: 'yyyy-mm-dd',
+				autoclose: true}).on('changeDate', function (ev) {
+         $(this).blur();
+         $(this).datepicker('hide');
+			});
+		});
+	});
+	</script>
+    <div class="row" id="NewParty" ng-controller="NewPartyCtrl">
+	<center>
+        <div id="div_principal">
+            <div ng-include="'view/menu.html'"></div>
+			<div id="conteudo">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="well">
+							<h2>New Party</h2>
+							<form name="modalForm">
+								<div class="col-sm-12">
+									<input type="text" class="form-control colorForm" placeholder="Party name" ng-model="party_name"/>
+								</div>
+								<div class="col-sm-12">
+									<textarea rows="4" class="form-control colorForm" placeholder="Description" ng-model="Description"></textarea>									
+								</div>
+								<div class="col-sm-12">
+									<div class="col-sm-4" style="padding-left: 0;">
+										<label for="price">Price</label>
+										<input type="number" placeholder="R$" min="0" class="form-control colorForm" id="price" ng-model="price"/>
+									</div>
+									<div class="col-sm-4">
+										<label for="maxparticipants">Max Participants</label>
+										<input type="number" min="0" class="form-control colorForm" id="maxparticipants" ng-model="max_participants"/>
+									</div>
+									<div class="col-sm-4">
+										<label for="agegroup">Age Group</label>
+										<input type="number" min="0" max="99" class="form-control colorForm" id="agegroup" ng-model="age_group"/>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="col-sm-6">
+										<label for="initial_date">Start</label>
+										<input type="text" class="form-control partydate colorForm datepicker" id="initialdate" ng-model="initial_date" />{{initial_date}}
+									</div>
+									<div class="col-sm-6">
+										<label for="final_date">Ends</label>
+										<input type="text" class="form-control partydate colorForm datepicker" id="finaldate" ng-model="final_date" />
+									</div>
+								</div>
+								<div class="col-sm-12" style="margin-top: 10px;">
+									<a id="bInsertLocation" class="btn btn-primary" data-toggle="modal" data-target="#ModalMap" tabindex="-1" ><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Insert location</a>
+								</div>
+								<!-- Modal -->
+								  <div class="modal fade" id="ModalMap" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+								      <div class="modal-content">
+								        <div class="modal-body">
+								        		<select id="estado" class="form-control partydate colorForm" style="float: left; margin: 20px 33px" name="estado"></select>
+								        		<select id="cidade" class="form-control partydate colorForm" style="width:250px;float: left; margin: 20px 33px" name="cidade" ng-model="city"></select>
+								        	<center>
+											<div style="width: 500px; height: 500px;margin-bottom: 60px;">
+												<div id="googleMap" style="border: 5px solid #2D2D2D;width:100%;height:100%;">
+											
+												</div>
+											</div>
+										</center>
+								        </div>
+								        <div class="modal-footer mfProfile">
+								          <button type="button" id="bCloseProfile" class="btn btn-primary" data-dismiss="modal">Save</button>
+								        </div>
+								      </div>
+								      
+								    </div>
+								  </div>
+								<!-- KBOOOOOOOOOOOOOOO -->
+								<div class="col-sm-12" style="margin-bottom: 20px;">
+									<a href="#/home" id="bCancel" class="btn btn-primary">Cancel</a><button type="button" id="bCreateParty" class="btn btn-primary" onclick="setDate()" ng-click="functionPOST()">Create</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<center>
+    </div>
